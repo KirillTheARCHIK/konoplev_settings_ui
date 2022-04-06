@@ -9,9 +9,11 @@ class OptionsSettingTile extends Setting {
     required this.options,
     required String title,
     required this.onTapSetting,
+    String value = '',
   }) : super(
           key: key,
           title: title,
+          value: value,
         );
 
   @override

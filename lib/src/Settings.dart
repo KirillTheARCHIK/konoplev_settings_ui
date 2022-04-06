@@ -10,5 +10,6 @@ abstract class Setting extends StatefulWidget {
   Setting({
     Key? key,
     required this.title,
+    this.value = '',
   }) : super(key: key);
 }
