@@ -13,5 +13,6 @@ abstract class PreferenceSetting extends Setting {
     Key? key,
     required this.title,
     required this.preferenceName,
-  }) : super(key: key, title: title);
+    Icon? icon,
+  }) : super(key: key, title: title, icon: icon);
 }

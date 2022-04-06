@@ -9,10 +9,12 @@ class PreferenceOptionsSettingTile extends PreferenceSetting {
     required this.options,
     required String title,
     required String preferenceName,
+    Icon? icon,
   }) : super(
           key: key,
           title: title,
           preferenceName: preferenceName,
+          icon: icon,
         );
 
   @override
@@ -37,6 +39,7 @@ class _PreferenceOptionsSettingTileState
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      leading: widget.icon,
       title: Text(widget.title),
       subtitle: Text(widget.value),
       onTap: () {

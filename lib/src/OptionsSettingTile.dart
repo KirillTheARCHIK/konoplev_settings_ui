@@ -10,10 +10,12 @@ class OptionsSettingTile extends Setting {
     required String title,
     required this.onTapSetting,
     String value = '',
+    Icon? icon,
   }) : super(
           key: key,
           title: title,
           value: value,
+          icon: icon,
         );
 
   @override
@@ -24,6 +26,7 @@ class _OptionsSettingTileState extends State<OptionsSettingTile> {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      leading: widget.icon,
       title: Text(widget.title),
       subtitle: Text(widget.value),
       onTap: () {

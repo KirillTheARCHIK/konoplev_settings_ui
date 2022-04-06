@@ -6,10 +6,12 @@ abstract class Setting extends StatefulWidget {
   );
   final String title;
   String value = '';
+  Widget? icon;
 
   Setting({
     Key? key,
     required this.title,
     this.value = '',
+    this.icon,
   }) : super(key: key);
 }
