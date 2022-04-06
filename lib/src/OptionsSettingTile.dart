@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:konoplev_settings_ui/src/Settings.dart';
 
 class OptionsSettingTile extends Setting {
-  Map<String, String> options;
-  void Function() onTapSetting;
+  Map<String, dynamic> options;
+  void Function(MapEntry) onTapSetting;
   OptionsSettingTile({
     Key? key,
     required this.options,
@@ -49,7 +49,7 @@ class _OptionsSettingTileState extends State<OptionsSettingTile> {
                               // setState(() {
                               //   widget.value = e.value;
                               // });
-                              widget.onTapSetting();
+                              widget.onTapSetting(e);
                               Navigator.pop(context);
                             },
                           ))
