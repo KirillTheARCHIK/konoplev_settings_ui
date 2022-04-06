@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:konoplev_settings_ui/src/Settings.dart';
+import 'package:konoplev_settings_ui/src/PreferenceSettings.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class TextSettingTile extends Setting {
+class PreferenceTextSettingTile extends PreferenceSetting {
   TextEditingController textEditingController = TextEditingController();
 
-  TextSettingTile({
+  PreferenceTextSettingTile({
     Key? key,
     required String title,
     required String preferenceName,
@@ -16,10 +16,11 @@ class TextSettingTile extends Setting {
         );
 
   @override
-  State<TextSettingTile> createState() => _TextSettingTileState();
+  State<PreferenceTextSettingTile> createState() =>
+      _PreferenceTextSettingTileState();
 }
 
-class _TextSettingTileState extends State<TextSettingTile> {
+class _PreferenceTextSettingTileState extends State<PreferenceTextSettingTile> {
   @override
   void initState() {
     () async {

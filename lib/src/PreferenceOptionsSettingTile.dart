@@ -1,24 +1,39 @@
 import 'package:flutter/material.dart';
-import 'package:konoplev_settings_ui/src/Settings.dart';
+import 'package:konoplev_settings_ui/src/PreferenceSettings.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class OptionsSettingTile extends Setting {
+class PreferenceOptionsSettingTile extends PreferenceSetting {
   Map<String, String> options;
-  void Function() onTapSetting;
-  OptionsSettingTile({
+  PreferenceOptionsSettingTile({
     Key? key,
     required this.options,
     required String title,
-    required this.onTapSetting,
+    required String preferenceName,
   }) : super(
           key: key,
           title: title,
+          preferenceName: preferenceName,
         );
 
   @override
-  State<OptionsSettingTile> createState() => _OptionsSettingTileState();
+  State<PreferenceOptionsSettingTile> createState() =>
+      _PreferenceOptionsSettingTileState();
 }
 
-class _OptionsSettingTileState extends State<OptionsSettingTile> {
+class _PreferenceOptionsSettingTileState
+    extends State<PreferenceOptionsSettingTile> {
+  @override
+  void initState() {
+    () async {
+      var preferences = SharedPreferences.getInstance();
+      SharedPreferences prefs = await preferences;
+      String newvalue = await prefs.getString(widget.preferenceName) ?? '';
+      setState(() {
+        widget.value = newvalue;
+      });
+    }();
+  }
+
   @override
   Widget build(BuildContext context) {
     return ListTile(
@@ -44,10 +59,9 @@ class _OptionsSettingTileState extends State<OptionsSettingTile> {
                                     height: 0,
                                   ),
                             onTap: () {
-                              // setState(() {
-                              //   widget.value = e.value;
-                              // });
-                              widget.onTapSetting();
+                              setState(() {
+                                widget.value = e.value;
+                              });
                               Navigator.pop(context);
                             },
                           ))

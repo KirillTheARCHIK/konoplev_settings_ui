@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:konoplev_settings_ui/konoplev_settings_ui.dart';
+import 'package:konoplev_settings_ui/src/PreferenceSettings.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SaveSettingsButton extends StatefulWidget {
-  List<Setting> settingsList;
+  List<PreferenceSetting> settingsList;
   void Function()? additionalActions;
   SaveSettingsButton({
     Key? key,
